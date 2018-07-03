@@ -1,0 +1,163 @@
+.cdt {
+    &-carousel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    .navigation {
+        position: absolute;
+        display: flex;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        &.sides {  
+            justify-content: space-between;
+        }
+        &.bottom-right {
+            justify-content: flex-end;
+            align-items: flex-end;
+            .btn {
+                height: 50px;
+                flex-basis: 60px;
+            }
+        }
+        &.bottom-left {
+            justify-content: flex-start;
+            align-items: flex-end;
+            .btn {
+                height: 50px;
+                flex-basis: 60px;
+            }
+        }
+        &.top-left {
+            justify-content: flex-start;
+            align-items: flex-start;
+            .btn {
+                height: 50px;
+                flex-basis: 60px;
+            }
+        }
+        &.top-right {
+            justify-content: flex-end;
+            align-items: flex-start;
+            .btn {
+                height: 50px;
+                flex-basis: 60px;
+            }
+        }
+        .btn {
+            display: flex;
+            flex-basis: 15%;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover .arrow {
+                opacity: 0.8;
+            }
+            .arrow {
+                position: relative;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border-width: 3px;
+                border-style: solid;
+                border-color: #fff;
+                border-right-width: 0;
+                border-bottom-width: 0;
+                transform: rotate(-45deg);
+                transition: all 0.2s;
+            }
+            .arrow-1 {
+                width: 24px;
+                height: 2px;
+                background: #000;
+                &:before {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 2px;
+                transform-origin: 0;
+                transform: translate(-1px, 0.6px) rotate(-45deg);
+                background: inherit;
+                }
+                &:after {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 2px;
+                transform-origin: 0;
+                transform: translate(-1px, -0.6px) rotate(45deg);
+                background: inherit;
+                }
+            }
+            &.next-btn {
+                .arrow {
+                transform: rotate(135deg);
+                }
+                .arrow-1 {
+                transform: rotate(180deg);
+                }
+                //right: 0;
+                //left: auto;
+            }
+        }  
+    }
+    .next {
+        transform: translate(100%);
+        position: absolute !important;
+        width: 100%;
+        display: flex !important;
+        transition: transform .6s ease,-webkit-transform .6s ease;
+    }
+    .next.left {
+        transform: translateX(0);
+    }
+    .prev {
+        transform: translate(-100%);
+        position: absolute !important;
+        width: 100%;
+        display: flex !important;
+        transition: transform .6s ease,-webkit-transform .6s ease;
+    }
+    .prev.right {
+        transform: translateX(0);
+    }
+    .active.left {
+        transform: translateX(-100%);
+    }
+    .active.right {
+        transform: translateX(100%);
+    }
+    border: 1px solid $primary-color-1;
+    .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .first {
+        background: blueviolet;
+        }
+        .second {
+        background: green;
+        }
+        .third {
+        background: tomato;
+        }
+        & > * {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            align-items : center;
+            &.active {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                display: flex;
+                transition: transform .6s ease,-webkit-transform .6s ease;
+            }     
+            display: none;
+            }
+        }
+    }
+}

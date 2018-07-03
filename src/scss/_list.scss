@@ -1,0 +1,35 @@
+.cdt {
+    &-list {
+        header {
+            padding: 5px 0;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+            display: flex;
+            .avatar {
+                margin: 8px 16px 8px 0;
+                display: block;
+                line-height: 1;
+                min-width: 36px;
+                min-height: 36px;
+            }
+            .cdt-list-item {
+                margin-top: 10px;
+                flex: 1;
+            }
+            }
+        }
+        &.no-underline {
+            a {
+            text-decoration: none;
+            }
+        }
+        }
+        &-divider {
+        margin: 0;
+        border: 1px solid $gray-color-4;
+    }
+}

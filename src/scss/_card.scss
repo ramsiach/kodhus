@@ -1,0 +1,22 @@
+.cdt {
+    &-card {
+        header {
+            display: flex;
+            .title, .sub-title {
+            margin-bottom: 15px;
+            }
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .actions {
+            padding: 10px 0;
+            button {
+            &:not(:first-child) {
+                margin: 0 5px;
+            }
+            }
+        }
+    }
+}
