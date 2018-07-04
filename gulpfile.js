@@ -12,8 +12,13 @@ gulp.task('serve', () => {
 })
 
 gulp.task('sass', () => {
-    return gulp.src('src/scss/all.scss')
+    return gulp.src('src/scss/kodhus.scss')
         .pipe(sass())
+        .pipe(gulp.dest('dist'))
+        .pipe(browserSync.stream());
+});
+gulp.task('js', () => {
+    return gulp.src('src/js/kodhus.js')
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
 });
