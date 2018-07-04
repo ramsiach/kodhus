@@ -21,20 +21,19 @@ dialogs.forEach(function(dialog) {
 
 const mobileTrigger = document.querySelector('.cdt-top-nav .mobile-trigger');
 const topNavigations = document.querySelector('.cdt-top-nav .navigations');
-const allOtherNavs = document.querySelectorAll('.cdt-nav-responsive');
 const allOtherNavsCloned = [];
 const allOtherNavsParent = [];
-allOtherNavs.forEach((nav) => {
-    allOtherNavsCloned.push(nav.cloneNode(true));
-    let parentElement = nav.parentElement;
-    allOtherNavsParent.push(nav.parentElement);
-});
-console.log(allOtherNavsCloned[0]);
+
 let secondaryNavCreated = false;
 let secondaryMobileNavs;
 window.addEventListener('resize', () => {
-    
     if (window.innerWidth <= tabletPhoneBreakpoint) {
+        const allOtherNavs = document.querySelectorAll('.cdt-nav-responsive');
+        allOtherNavs.forEach((nav) => {
+            allOtherNavsCloned.push(nav.cloneNode(true));
+            let parentElement = nav.parentElement;
+            allOtherNavsParent.push(nav.parentElement);
+        });
         if (!secondaryNavCreated) {
             secondaryMobileNavs = document.createElement('div');
             const secondaryMobileNavsUl = document.createElement('ul');
@@ -55,7 +54,10 @@ window.addEventListener('resize', () => {
                 parent.appendChild(allOtherNavsCloned[index]);
             });
             secondaryMobileNavs.parentElement.removeChild(secondaryMobileNavs);
+            secondaryMobileNavs = null;
             secondaryNavCreated = false;
+            allOtherNavsCloned.length = 0;
+            allOtherNavsParent.length = 0;
             
         }
         
