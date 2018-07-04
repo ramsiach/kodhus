@@ -8,18 +8,21 @@
             padding: 0;
             list-style: none;
             li {
-            display: flex;
-            .avatar {
-                margin: 8px 16px 8px 0;
-                display: block;
-                line-height: 1;
-                min-width: 36px;
-                min-height: 36px;
-            }
-            .cdt-list-item {
                 margin-top: 10px;
-                flex: 1;
-            }
+                display: flex;
+                .avatar {
+                    margin: 8px 16px 8px 0;
+                    display: block;
+                    line-height: 1;
+                    min-width: 36px;
+                    min-height: 36px;
+                }
+                .cdt-list-item {
+                    flex: 1;
+                    a {
+                        text-decoration: none;
+                    }
+                }
             }
         }
         &.no-underline {

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i');
+@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css);
+
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
@@ -21,4 +23,7 @@ h5 {
 }
 h6 {
     font-size: 1rem;
+}
+code {
+    font-family: 'Fira code';
 }

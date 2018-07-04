@@ -76,7 +76,7 @@ div.cdt-top-nav {
   }
   
   section {
-    padding: 60px 160px;
+    // padding: 60px 160px;
     &.big-image {
       padding: 0;
       height: 400px;
@@ -99,14 +99,7 @@ div.cdt-top-nav {
       }
     }
     @media screen and (max-width: $tablet-breakpoint) {
-      padding: 20px;
-    }
-    h4 {
-      text-align: center;
-      padding: 10px;
-      @media screen and (max-width: $tablet-breakpoint) {
-        text-align: left;
-      }
+      //padding: 20px;
     }
     &.stuff {
       button {

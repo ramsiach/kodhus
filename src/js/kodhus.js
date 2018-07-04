@@ -1,4 +1,6 @@
 /* Dialog */
+
+const tabletPhoneBreakpoint = 768;
 const dialogTriggers = document.querySelectorAll('[data-dialog]');
 const dialogs = document.querySelectorAll('.cdt-dialog-container');
 
@@ -19,10 +21,53 @@ dialogs.forEach(function(dialog) {
 
 const mobileTrigger = document.querySelector('.cdt-top-nav .mobile-trigger');
 const topNavigations = document.querySelector('.cdt-top-nav .navigations');
+const allOtherNavs = document.querySelectorAll('.cdt-nav-responsive');
+const allOtherNavsCloned = [];
+const allOtherNavsParent = [];
+allOtherNavs.forEach((nav) => {
+    allOtherNavsCloned.push(nav.cloneNode(true));
+    let parentElement = nav.parentElement;
+    allOtherNavsParent.push(nav.parentElement);
+});
+console.log(allOtherNavsCloned[0]);
+let secondaryNavCreated = false;
+let secondaryMobileNavs;
+window.addEventListener('resize', () => {
+    
+    if (window.innerWidth <= tabletPhoneBreakpoint) {
+        if (!secondaryNavCreated) {
+            secondaryMobileNavs = document.createElement('div');
+            const secondaryMobileNavsUl = document.createElement('ul');
+            secondaryMobileNavs.appendChild(secondaryMobileNavsUl);
+            secondaryMobileNavs.classList.add('cdt-secondary');
+            topNavigations.querySelector('nav').appendChild(secondaryMobileNavs);
+            allOtherNavs.forEach((nav, index) => {
+                nav.querySelectorAll('li').forEach((item) => {
+                    secondaryMobileNavsUl.appendChild(item);
+                });
+                allOtherNavsParent[index].removeChild(allOtherNavs[index]);
+            });
+            secondaryNavCreated = true;
+        }
+    } else {
+        if (secondaryNavCreated) {
+            allOtherNavsParent.map((parent, index) => {
+                parent.appendChild(allOtherNavsCloned[index]);
+            });
+            secondaryMobileNavs.parentElement.removeChild(secondaryMobileNavs);
+            secondaryNavCreated = false;
+            
+        }
+        
+    }
+    
+});
 mobileTrigger.addEventListener('click', function() {
     this.classList.toggle('open');
     topNavigations.classList.toggle('show');
 });
+
+
 
 var carousel = document.querySelector('.cdt-carousel .wrapper');
 var active = document.querySelector('.cdt-carousel .active');

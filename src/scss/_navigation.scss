@@ -1,4 +1,31 @@
 .cdt {
+    &-nav {
+        .selected {
+            &:before {
+                content: '';
+                height: 100%;
+                width: 2px;
+                position: absolute;
+                background-color: $primary-color-1;
+                left: -8px;
+                top: 0;
+            }
+            color: $primary-color-1;
+            a {
+                color: $primary-color-1;
+            }
+        }
+        li {
+            position: relative;
+            &:hover {
+                color: $primary-color-1;
+                a {
+                    color: $primary-color-1;
+                }
+            }
+            
+        }
+    }
     &-top-nav {
         display: flex;
         flex-wrap: wrap;
@@ -29,7 +56,7 @@
             width: 30px;
             height: 30px;
             display: block;
-            right: 40px;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
@@ -139,7 +166,7 @@
             position: absolute;
             background: #fff;
             width: 100%;
-            top: 100px;
+            top: 60px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             }
             &.show {
