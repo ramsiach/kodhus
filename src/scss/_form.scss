@@ -1,3 +1,17 @@
+.cdt-form {
+    .cdt-1, .cdt-2, .cdt-3, .cdt-4, .cdt-5, .cdt-6, .cdt-7, .cdt-8, .cdt-9, .cdt-10, .cdt-11, .cdt-12 {
+        padding: 0;
+    }
+    .cdt-row {
+      .cdt-label {
+        padding-top: 12px;
+      }
+      flex-wrap: wrap;
+      .cdt-toggle label {
+        order: -1;
+      }
+    }
+  }
 input[type="text"] {
     color: #666;
     display: block;
@@ -153,7 +167,7 @@ input[type="text"] {
           width: 16px;
           height: 16px;
           border-radius: 50%;
-          top: -2px;
+          top: 0px;
           left: 0;
           border: 2px solid #bbb;
           background: #fff; 
