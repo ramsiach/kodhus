@@ -33,11 +33,11 @@
         .logo {
             position: relative;
             padding: 18px;
-            @media screen and (max-width: 1100px) {
+            @media screen and (max-width: $mobile-breakpoint) {
             width: 100%;
             }
             &.center {
-            @media screen and (max-width: 700px) {
+            @media screen and (max-width: $mobile-breakpoint) {
                 width: 100%;
                 text-align: center;
             }
@@ -162,7 +162,7 @@
             }
         }
         .navigations {
-            @media screen and (max-width: 700px) {
+            @media screen and (max-width: $mobile-breakpoint) {
             display: none;
             position: absolute;
             background: #fff;

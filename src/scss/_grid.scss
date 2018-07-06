@@ -1,6 +1,7 @@
 .cdt {
     &-row {
         display: flex;
+        margin: 0 -16px;
         @media screen and (max-width: $tablet-breakpoint) {
             flex-wrap: wrap;
         }

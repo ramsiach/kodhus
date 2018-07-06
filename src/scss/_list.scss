@@ -8,20 +8,33 @@
             padding: 0;
             list-style: none;
             li {
-                margin-top: 10px;
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
                 display: flex;
                 .avatar {
-                    margin: 8px 16px 8px 0;
-                    display: block;
+                    margin: 0 16px 0 0;
+                    margin: 0 16px 0px 0;
+                    display: flex;
+                    align-items: center;
                     line-height: 1;
                     min-width: 36px;
                     min-height: 36px;
                 }
                 .cdt-list-item {
+                    margin-top: 7px;
                     flex: 1;
+                    line-height: 1;
+                    padding-top: 5px;
                     a {
                         text-decoration: none;
                     }
+                }
+                .extra {
+                    line-height: 1;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 5px;
                 }
             }
         }
