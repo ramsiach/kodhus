@@ -8,9 +8,7 @@
             padding: 0;
             list-style: none;
             li {
-                &:not(:last-child) {
-                    margin-bottom: 10px;
-                }
+                padding-bottom: 10px;
                 display: flex;
                 .avatar {
                     margin: 0 16px 0 0;
