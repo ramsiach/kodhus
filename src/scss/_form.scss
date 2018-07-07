@@ -1,10 +1,23 @@
+.cdt-label {
+    display: flex;
+    align-items: center;
+  }
 .cdt-form {
-    .cdt-1, .cdt-2, .cdt-3, .cdt-4, .cdt-5, .cdt-6, .cdt-7, .cdt-8, .cdt-9, .cdt-10, .cdt-11, .cdt-12 {
-        padding: 0;
+    @media screen and (max-width: $mobile-breakpoint) {
+        .cdt-1, .cdt-2, .cdt-3, .cdt-4, .cdt-5, .cdt-6, .cdt-7, .cdt-8, .cdt-9, .cdt-10, .cdt-11, .cdt-12 {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
     }
+    
+    .cdt-label {
+        display: flex;
+        align-items: center;
+      }
     .cdt-row {
       .cdt-label {
-        padding-top: 12px;
+        display: flex;
+        align-items: center;
       }
       flex-wrap: wrap;
       .cdt-toggle label {

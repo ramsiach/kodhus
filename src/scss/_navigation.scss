@@ -1,27 +1,39 @@
 .cdt {
-    &-nav {
-        .selected {
-            &:before {
-                content: '';
-                height: 60%;
-                width: 2px;
-                position: absolute;
-                background-color: $primary-color-1;
-                left: -8px;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            color: $primary-color-1;
-            a {
-                color: $primary-color-1;
-            }
+    &-secondary {
+        ul li .cdt-list-item {
+            padding-left: 20px;
         }
-        li {
-            position: relative;
-            &:hover {
+        p {
+            padding-left: 20px;
+        }
+    }
+    &-nav {
+        li.selected {
+            &> .cdt-list-item {
+                &:before {
+                    content: '';
+                    height: 60%;
+                    width: 2px;
+                    position: absolute;
+                    background-color: $primary-color-1;
+                    left: -8px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
                 color: $primary-color-1;
                 a {
                     color: $primary-color-1;
+                }
+            }
+        }
+        li {
+            .cdt-list-item {
+                position: relative;
+                &:hover {
+                    color: $primary-color-1;
+                    a {
+                        color: $primary-color-1;
+                    }
                 }
             }
             
