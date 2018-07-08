@@ -19,6 +19,19 @@
 
     /* Dialog end */
 
+    /* notifications */
+    var notifications = document.querySelectorAll('.cdt-notification');
+    notifications.forEach(function(notification) {
+        var closeBtn = notification.querySelector('.close') || notification.querySelector("[data-close='true']");
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                notification.classList.add('hide');
+            });
+        }
+    });
+    /* end of notification */
+
+
     const mobileTrigger = document.querySelector('.cdt-top-nav .mobile-trigger');
     const topNavigations = document.querySelector('.cdt-top-nav .navigations');
     const allOtherNavsCloned = [];

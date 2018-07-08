@@ -40,3 +40,15 @@ blockquote {
     margin: 0;
     margin-bottom: 15px;
 }
+
+.cdt-list .item {
+    p { // probably should be sub-title class instead of p
+        margin-bottom: 0; 
+    }
+}
+p {
+    &.small {
+        font-size: 11px;
+        color: #666;
+    }
+}
