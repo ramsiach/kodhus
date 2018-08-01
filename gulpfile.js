@@ -5,6 +5,8 @@ const uglify = require('gulp-uglify-es').default;
 const csso = require('gulp-csso');
 const rename = require('gulp-rename');
 
+const version = '-v0.1-alpha'
+
 gulp.task('serve', () => {
     browserSync.init({
         server: {
@@ -26,7 +28,7 @@ gulp.task('sass-build', () => {
     return gulp.src('src/scss/kodhus.scss')
         .pipe(sass())
         .pipe(csso())
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({suffix: version+'.min'}))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
 });
@@ -34,7 +36,7 @@ gulp.task('sass-build', () => {
 gulp.task('js-build', () => {
     return gulp.src('src/js/kodhus.js')
         .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
+        .pipe(rename({suffix: version+'.min'}))
         .pipe(gulp.dest('dist'))
 });
 
