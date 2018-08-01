@@ -1,7 +1,5 @@
 #!/bin/sh
 HOST='ftp.kodhus.com'
-CSS='kodhus.min.css'
-JS='kodhus.min.js'
 LOCALPATH='dist'
 REMOTEPATH='/kodhus-ui'
 
