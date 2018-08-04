@@ -1,11 +1,12 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
-const uglify = require('gulp-uglify-es').default;
+const uglify = require('gulp-uglify');
 const csso = require('gulp-csso');
 const rename = require('gulp-rename');
+const babel = require('gulp-babel');
 
-const version = '-v0.1-alpha'
+const version = require('./package.json').version;
 
 gulp.task('serve', () => {
     browserSync.init({
@@ -17,34 +18,27 @@ gulp.task('serve', () => {
     gulp.watch("example/index.html").on('change', browserSync.reload);
 });
 
-gulp.task('sass', () => {
-    return gulp.src('src/scss/kodhus.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream());
-});
-
 gulp.task('sass-build', () => {
     return gulp.src('src/scss/kodhus.scss')
         .pipe(sass())
         .pipe(csso())
-        .pipe(rename({suffix: version+'.min'}))
+        .pipe(rename({suffix: '-' + version}))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
 });
 
-gulp.task('js-build', () => {
-    return gulp.src('src/js/kodhus.js')
-        .pipe(uglify())
-        .pipe(rename({suffix: version+'.min'}))
-        .pipe(gulp.dest('dist'))
+gulp.task('sass-build-min', () => {
+  return gulp.src('src/scss/kodhus.scss')
+      .pipe(sass())
+      .pipe(csso())
+      .pipe(rename({suffix: '-' + version + '.min'}))
+      .pipe(gulp.dest('dist'))
+      .pipe(browserSync.stream());
 });
 
 gulp.task('js', () => {
     return gulp.src('src/js/kodhus.js')
         .pipe(gulp.dest('dist'))
 });
-
-gulp.task('build', ['sass-build', 'js-build']);
 
 gulp.task('default', ['serve']);
