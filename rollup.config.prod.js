@@ -7,7 +7,7 @@ export default {
   input: 'src/js/kodhus.js',
   output: {
     name: 'bundle',
-    file: `dist/kodhus-${version}-min.js`,
+    file: `dist/kodhus-${version}.min.js`,
     format: 'iife',
     // sourcemap: 'inline'
   },

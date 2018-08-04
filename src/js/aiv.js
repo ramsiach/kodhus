@@ -18,7 +18,7 @@ const Aiv = (() => {
       }
   }
   // cache element properties
-  revealElementsCached = [];
+  const revealElementsCached = [];
   revealElements.forEach((elem) => {
       revealElementsCached.push({
           element: elem,
