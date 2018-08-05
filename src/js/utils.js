@@ -4,4 +4,5 @@ const Utils = (() => {
     tabletPhoneBreakpoint
   }
 })();
+
 export default Utils;

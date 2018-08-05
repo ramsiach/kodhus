@@ -3,12 +3,13 @@ import Utils from './utils';
 const Navigation = (() => {
   const mobileTrigger = document.querySelector('.cdt-top-nav .mobile-trigger');
   const topNavigations = document.querySelector('.cdt-top-nav .navigations');
+  const navItems = document.querySelectorAll('.cdt-nav > li');
   const allOtherNavsCloned = [];
   const allOtherNavsParent = [];
-
   let secondaryNavCreated = false;
   let secondaryMobileNavs;
-  function setResponsiveMenu() {
+
+  const setResponsiveMenu = () => {
       if (window.innerWidth <= Utils.tabletPhoneBreakpoint) {
           navChildrenVisibility(false);
           const allOtherNavs = document.querySelectorAll('.cdt-nav-responsive');
@@ -43,7 +44,6 @@ const Navigation = (() => {
               secondaryNavCreated = false;
               allOtherNavsCloned.length = 0;
               allOtherNavsParent.length = 0;
-              
           }   
       }
   }
@@ -60,7 +60,6 @@ const Navigation = (() => {
           topNavigations.classList.toggle('show');
       });
   }
-  
 
   /* Initial hiding of cdt-nav children */
   const navChildrenVisibility = (state) => {
@@ -70,7 +69,7 @@ const Navigation = (() => {
           listItem.classList.add(cls);
       });
   }
-  const navItems = document.querySelectorAll('.cdt-nav > li');
+
   navItems.forEach((listItem, index) => {
       listItem.addEventListener('click', () => {
           navChildren.forEach((listItem, index) => {
@@ -79,7 +78,6 @@ const Navigation = (() => {
           listItem.querySelector('ul').classList.remove('hide');
       });
   });
-
 
   /* cdt-nav list ul child selected */
   const childListItems = document.querySelectorAll('.cdt-list li ul .cdt-list-item');
