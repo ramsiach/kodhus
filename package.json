@@ -31,5 +31,5 @@
     "build": "npm run build-css & npm run build-js",
     "build-min": "npm run build-css-min & npm run build-js-min",
     "build-all": "npm run build-css & npm run build-js & npm run build-css-min & npm run build-js-min"
-  } 
+  }
 }

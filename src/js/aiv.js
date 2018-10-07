@@ -4,17 +4,16 @@ const Aiv = (() => {
   const revealElement = (element, scroll_pos, duration, timingFunction, delay) => {
       const elementHeight = element.offsetHeight;
       const elementTop = element.offsetTop;
-      element.style.transformOrigin = "50% 100%";
-      element.style.transform = "translateY(" + 100 + "px) scale(1)";
-      element.style.opacity = "0";
+      
       // if (scroll_pos + window.innerHeight > elementTop + elementHeight * .4) {
       if (scroll_pos + window.innerHeight > elementTop + elementHeight) {
+        
           // element.style.transition = "all 1s cubic-bezier(0.6, 0.2, 0.1, 1)";
           element.style.transition = "all " + duration + "ms " + delay + "ms " +  timingFunction;
-          setTimeout(() => {
+          //setTimeout(() => {
               element.style.transform = "translateY(0) scale(1)";
               element.style.opacity = "1";
-          }, 0);
+          //}, 0);
       }
   }
   // cache element properties
@@ -27,17 +26,26 @@ const Aiv = (() => {
           delay: elem.getAttribute('data-delay') ? parseInt(elem.getAttribute('data-delay')) : 0,
           elementHeight: elem.offsetHeight,
           elementTop: elem.offsetTop,
-          onChildren: elem.getAttribute('data-aiv-children') || false,
+          onChildren: elem.getAttribute('data-aiv-children') ? elem.getAttribute('data-aiv-children') : false,
           childrenDelay: elem.getAttribute('data-children-delay') || 0
       });
+      console.log(revealElementsCached.onChildren);
+      
   });
   const reveal = (scroll_pos) => {
       revealElementsCached.forEach((elementObj) => {
           if (elementObj.onChildren) {
+              console.log('yes children');
               elementObj.element.querySelectorAll(':scope > *').forEach((element, index) => {
-                  revealElement(element, scroll_pos, elementObj.duration, elementObj.timingFunction, index * elementObj.childrenDelay);
+                element.style.transform = "translateY(" + 100 + "px) scale(1)";
+                element.style.opacity = "0";
+                element.style.transformOrigin = "50% 100%";
+                  revealElement(element, scroll_pos, elementObj.duration, elementObj.timingFunction, elementObj.delay + index * elementObj.childrenDelay);
               });
           } else {
+            elementObj.element.style.transform = "translateY(" + 100 + "px) scale(1)";
+            elementObj.element.style.opacity = "0";
+            elementObj.element.style.transformOrigin = "50% 100%";
               revealElement(elementObj.element, scroll_pos, elementObj.duration, elementObj.timingFunction, elementObj.delay);
           }
       });
@@ -56,6 +64,7 @@ const Aiv = (() => {
               ticking = true;
           }
       });
+      reveal(last_known_scroll_position);
   }
 })();
 
